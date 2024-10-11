@@ -16,6 +16,12 @@ app.use(fileUpload({
 
 app.use('/', router);
 
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: "Ping Success!"
+    });
+});
+
 app.use("*",notFoundURLHandler);
 
 app.use(errorHandler);
