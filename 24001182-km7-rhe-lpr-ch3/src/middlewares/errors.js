@@ -1,6 +1,3 @@
-const { NotFoundError } = require("../utils/request");
-
-// If there are any error when API Hit, this function will be run
 exports.errorHandler = (err, req, res, next) => {
     console.error(err);
 
@@ -21,5 +18,9 @@ exports.errorHandler = (err, req, res, next) => {
 
 // This handler is for 404 not found URL
 exports.notFoundURLHandler = (req, res, next) => {
-    throw new NotFoundError("URL is Not Found!");
+    res.status(404).json({
+        success: false,
+        data: null,
+        message: "URL is Not Found!",
+    });
 };

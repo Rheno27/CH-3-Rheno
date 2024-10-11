@@ -13,8 +13,8 @@ exports.getAllCars = (plate, manufacture, model) => {
     const lowerCaseModel = model ? model.toLowerCase() : "";
 
     const searchedCars = cars.filter((car) => { 
-        return car.plate.toLowerCase().includes(lowerCasePlate) &&
-                car.manufacture.toLowerCase().includes(lowerCaseManufacture) &&
+        return car.plate.toLowerCase().includes(lowerCasePlate) ||
+                car.manufacture.toLowerCase().includes(lowerCaseManufacture) ||
                 car.model.toLowerCase().includes(lowerCaseModel);
     });
 
